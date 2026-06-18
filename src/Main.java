@@ -33,5 +33,42 @@ public class Main {
         int n = m = 999;        //从右往左结算
         String str1 = "一只" + "大西瓜" + true + 1.5;     //加号可以拼接字符串以及其他类型
         System.out.println(str);
+        int score = 100;
+        char grade = switch (score) {
+            case 100 -> 'A';
+            case 90 -> 'B';
+            case 80 -> 'C';
+            case 60 -> 'D';
+            default -> 'E';
+        };
+        System.out.println(grade);
+        var res = switch (score) {
+            case 100 -> 'A';
+            case 90 -> 'B';
+            case 80 -> 'C';
+            case 60 -> {
+                System.out.println("我是额外操作");
+                yield 'D';      //在最后使用yield关键字来指定关键结果
+            }
+            default -> 'E';
+        };
+        System.out.println(res);
+
+        new Person();
+        Person p1 = new Person();        //p类似于一个快捷方式
+        Person p2 = new Person();
+        Person p3 = p1;
+        System.out.println(p1 == p2);
+        System.out.println(p1 == p3);
+
+        Person p4 = new Person();
+        p4.name = "melon";
+        System.out.println(p4.name);
+
+        System.out.println(p4.age);     //默认为0
+
+        p4.hello();     //方法的调用
+        int sum = p4.sum(1, 2);
+        System.out.println(sum);
     }
 }
