@@ -13,6 +13,9 @@ out/
 *.ear
 hs_err_pid*
 
+### Codex automation ###
+.learning-snapshot/
+
 ### Eclipse ###
 .apt_generated
 .classpath

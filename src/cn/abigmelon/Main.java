@@ -1,3 +1,7 @@
+package cn.abigmelon;
+
+import cn.abigmelon.entity.Person;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello World!");     //这是注释
@@ -11,7 +15,7 @@ public class Main {
         a = a + 1;
         System.out.println(a);
         System.out.println(111);
-        final int b = 10;       //final表示这是一个常量
+        final int b = 10;       //final表示这是一个常量，后续不能被更改
         //整数类型包括byte，short，int，long
         long c = 9815526629959L;
         int d = 1_000_000;
@@ -70,5 +74,19 @@ public class Main {
         p4.hello();     //方法的调用
         int sum = p4.sum(1, 2);
         System.out.println(sum);
+
+        p4.setName("abc");
+        System.out.println(p4.name);
+
+        System.out.println(p1.sum(10, 20));     //可以通过后面加.sout快速写出输出
+        System.out.println(p1.sum(1.2, 1.3));
+
+        Person p = new Person();
+        System.out.println(p.name);     //手动定义的构造方法
+
+        Person.info = "hello";
+        System.out.println(p2.info);        //指向的是同一个东西
+
+
     }
 }
