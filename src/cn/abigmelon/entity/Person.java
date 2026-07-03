@@ -1,10 +1,10 @@
 package cn.abigmelon.entity;
 
-public class Person {
+public class Person implements Cloneable{
     public String name = "melon";
-    public int age = 18;
+    protected int age = 18;     //protected可以被子类使用
     public String gender = "male";
-    public static String info;     //所有的成员操作的是同一个变量属性 变成了类的属性
+    public static String info;     //所有的成员操作的是同一个变量属性 变成了类的属
 
     public void hello(){
         System.out.println("My name is "+name);
@@ -48,4 +48,38 @@ public class Person {
         Person.info = info;
         System.out.println(info);
     }       //静态方法同样是属于类的，静态方法中无法获取成员的值，但是可以获得静态的值
+
+    @Override
+    public boolean equals(Object obj){
+        if(this == obj){
+            return true;
+        }
+        if(obj == null){
+            return false;
+        }
+        if(obj instanceof Person person){
+            return this.name.equals(person.name) && this.age == person.age && this.gender.equals(person.gender);
+        }
+        return false;
+    }       //方法的重写
+
+    @Override
+    public String toString(){
+        return "Person[name="+name+", age="+age+", gender="+gender;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    private Status status;
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 }
