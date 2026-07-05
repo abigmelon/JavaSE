@@ -82,4 +82,10 @@ public class Person implements Cloneable{
     public void setStatus(Status status) {
         this.status = status;
     }
+
+    public void test(String... strings){
+        for(String s : strings){
+        System.out.println(s);
+        }
+    }
 }

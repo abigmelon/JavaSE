@@ -2,7 +2,6 @@ package cn.abigmelon.entity;
 
 public interface Study1 {
     public void study();
-
     default void test001(){
         System.out.println("test001");
         inner();
